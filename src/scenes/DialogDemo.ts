@@ -1,6 +1,5 @@
-import BaseScene from "mai3-phaser-ui/dist/scene";
+import { BaseScene, Dialog } from "mai3-phaser-ui";
 import { DialogBody, DialogFooter, DialogHeader, Mai3Component } from "mai3-phaser-ui/dist/types";
-import { Dialog } from "mai3-phaser-ui/dist/ui/Dialog";
 
 export class DialogDemo extends BaseScene {
     private dialog!: Dialog;

@@ -1,6 +1,5 @@
-import BaseScene from "mai3-phaser-ui/dist/scene";
+import { BaseScene, ProgressBar } from "mai3-phaser-ui";
 import { ProgressConfig } from "mai3-phaser-ui/dist/types";
-import { ProgressBar } from "mai3-phaser-ui/dist/ui/ProgressBar";
 
 export class ProgressBarDemo extends BaseScene {
     config?: ProgressConfig;

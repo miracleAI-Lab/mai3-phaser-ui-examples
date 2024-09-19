@@ -1,5 +1,4 @@
-import BaseScene from "mai3-phaser-ui/dist/scene";
-
+import { BaseScene } from "mai3-phaser-ui";
 export class ImageDemo extends BaseScene {
     constructor() {
         super('ImageDemo');

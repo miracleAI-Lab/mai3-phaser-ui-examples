@@ -1,6 +1,4 @@
-import BaseScene from "mai3-phaser-ui/dist/scene";
-import { GridLayout } from "mai3-phaser-ui/dist/ui/GridLayout";
-
+import { BaseScene, GridLayout } from "mai3-phaser-ui";
 export class DemoScene extends BaseScene {
     private gridLayout!: GridLayout;
 

@@ -1,4 +1,4 @@
-import { Mai3Plugin } from 'mai3-phaser-ui/dist/ui/Mai3Plugin';
+import { Mai3Plugin } from "mai3-phaser-ui";
 import * as scenes from './scenes';
 
 export default class Game {

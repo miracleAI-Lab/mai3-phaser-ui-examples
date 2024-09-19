@@ -1,5 +1,4 @@
-import BaseScene from "mai3-phaser-ui/dist/scene";
-import { Tabs } from "mai3-phaser-ui/dist/ui/Tabs";
+import { BaseScene, Tabs } from "mai3-phaser-ui";
 
 export class TabsDemo extends BaseScene {
     private tabs!: Tabs;
