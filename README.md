@@ -16,13 +16,13 @@ Follow these steps to set up and run the project:
 First, clone the repository to your local machine:
 
 ```bash
-git clone https://github.com/miracleAI-Lab/mai3-phaser-ui
+git clone https://github.com/miracleAI-Lab/mai3-phaser-ui-examples
 ```
 
 Navigate into the project directory:
 
 ```bash
-cd mai3-phaser-ui
+cd mai3-phaser-ui-examples
 ```
 
 ### 2. Install Dependencies
