@@ -28,7 +28,7 @@ cd mai3-phaser-ui-examples
 ### 2. Install Dependencies
 
 ```bash
-yarn
+yarn install
 ```
 
 ### 3. Start the Development Server
