@@ -27,14 +27,6 @@ cd mai3-phaser-ui-examples
 
 ### 2. Install Dependencies
 
-Make sure you have **yarn** installed. If not, you can install it globally by running:
-
-```bash
-npm install -g yarn
-```
-
-Now, install the project dependencies:
-
 ```bash
 yarn
 ```
