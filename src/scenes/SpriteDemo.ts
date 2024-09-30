@@ -66,7 +66,6 @@ export class SpriteDemo extends BaseScene {
         },
       ],
       enableSmoothScaleAnim: true,
-      // enablePointer: true,
     });
       
     //play walk
