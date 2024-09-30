@@ -12,6 +12,9 @@ export class Boot extends BaseScene {
         // this.load.image("preloader", "assets/images/preloader.png");
         this.load.image("strokeImage", "assets/images/loadingBar_0.png");
         this.load.image("progressImage", "assets/images/loadingBar_1.png");
+        this.load.image('ProgressBg', 'assets/images/ProgressBg.png');
+        this.load.image('ProgressFillBg', 'assets/images/ProgressFillBg.png');
+        this.load.atlas('ui', 'https://labs.phaser.io/assets/ui/nine-slice.png', 'https://labs.phaser.io/assets/ui/nine-slice.json');
     }
 
     create() {

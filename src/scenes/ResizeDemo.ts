@@ -1,11 +1,10 @@
 import { BaseScene } from "mai3-phaser-ui";
-
 export class ResizeDemo extends BaseScene {
 
   constructor() {
     super('ResizeDemo');
   }
-  
+
   preload() {
     super.preload();
   }
@@ -40,7 +39,7 @@ export class ResizeDemo extends BaseScene {
         handleFn: () => {
           this.switchDragResizeComponent(returnButton);
         }
-      }
+      },
     });
   }
 
@@ -116,11 +115,6 @@ export class ResizeDemo extends BaseScene {
         fontSize: '24px',
         color: '#FFFFFF',
         backgroundColor: '#FF5733'
-      },
-      handleDown: {
-        handleFn: () => {
-          this.switchDragResizeComponent(text);
-        }
       }
     });
 
@@ -130,12 +124,21 @@ export class ResizeDemo extends BaseScene {
       width: 30,
       height: 30,
       text: '复选框',
-      textStyle: { fontFamily: 'Arial', fontSize: '18px', color: '#000000' },
-      handleDown: {
-        handleFn: () => {
-          this.switchDragResizeComponent(checkbox);
-        }
-      }
+      textStyle: { fontFamily: 'Arial', fontSize: '18px', color: '#000000', fontStyle: '' },
+      // handleSelect: this._handleCheckClick.bind(this),
+      markBgRadius: 15,
+      markBgBorderWidth: 3,
+      markBgBorderColor: 0xff0,
+      markBgColor: 0x1f1,
+      markBgAlpha: 1,
+      markBgTexture: "logo",
+
+      markFillRadius: 12,
+      markFillBorderWidth: 3,
+      markFillBorderColor: 0xffeeff,
+      markFillColor: 0xff00ff,
+      markFillAlpha: 1,
+      markFillTexture: "logo3",
     });
 
     const checkboxGroup = this.mai3.add.checkboxGroup({
@@ -147,11 +150,6 @@ export class ResizeDemo extends BaseScene {
         { text: '选项3', value: 'option3' }
       ],
       textStyle: { fontFamily: 'Arial', fontSize: '18px', color: '#000000' },
-      handleDown: {
-        handleFn: () => {
-          this.switchDragResizeComponent(checkboxGroup);
-        }
-      }
     });
 
     const label = this.mai3.add.label({
@@ -167,7 +165,7 @@ export class ResizeDemo extends BaseScene {
         handleFn: () => {
           this.switchDragResizeComponent(label);
         }
-      }
+      },
     });
     label.setEventInteractive();
 

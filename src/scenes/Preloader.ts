@@ -1,17 +1,15 @@
 import { BaseScene, ProgressBar } from "mai3-phaser-ui";
-import { ProgressConfig } from "mai3-phaser-ui/dist/types";
-
+import { ImageProgressConfig, ProgressConfig } from "mai3-phaser-ui/dist/types";
 export class Preloader extends BaseScene {
-
     config?: ProgressConfig;
     progressBar1?: ProgressBar;
-
 
     nextScene?: string
     constructor() {
         super("Preloader");
     }
     preload() {
+        super.preload();
 
         this.loadskill()
         this.add.image(0, 0, "preloader");
@@ -21,9 +19,10 @@ export class Preloader extends BaseScene {
         this.load.image('logo4', 'assets/images/logo4.jpeg');
         this.load.json('config', 'assets/json/config.json');
         this.load.pack('loadimg', 'assets/json/assetimg.json');
-        this.load.pack('loadsprites', 'assets/json/assetsprites.json');
+        //this.load.pack('loadsprites', 'assets/json/assetsprites.json');
 
         this.load.image("mainMenuBg", "assets/images/mainMenuBg.png");
+        this.load.image("btn001", "assets/images/btn001.png");
         this.load.image('StartGameButton', 'assets/images/StartGameButton.png');
         this.load.image('StartGameButtonDown', 'assets/images/StartGameButtonDown.png');
         this.load.image('StartGameButtonHover', 'assets/images/StartGameButtonHover.png');
@@ -43,6 +42,12 @@ export class Preloader extends BaseScene {
         this.load.audio('sfx-press', 'assets/audio/sfx-press.wav');
         this.load.audio('bgm-game', 'assets/audio/bgm-game.mp3');
         this.load.audio('bgm-main', 'assets/audio/bgm-main.mp3');
+
+        //ImageButtonFillBg
+        this.load.image('ImageButtonFillBg', 'assets/images/ImageButtonFillBg.png');
+
+        //slider
+        this.load.image('RoundedButtonFillBg', 'assets/images/RoundedButtonFillBg.png');
 
         // let progressBar: ProgressBar;
         // this.load.on('filecomplete-json-config', (key: string) => {
@@ -83,42 +88,58 @@ export class Preloader extends BaseScene {
         const bg = this.add.rectangle(0, 0, this.scale.width, this.scale.height, 0x551A8B);
         bg.setOrigin(0, 0);
 
-        this.config = {
-            x: 10, y: 100,
-            width: 480,
-            height: 40,
-            radius: 20,
-            borderWidth: 0,
-            borderColor: 0xcf4b00,
-            bg: 0x008B8B,
-            fill: 0xff8221,
+        // this.config = {
+        //     x: 10, y: 100,
+        //     width: 480,
+        //     height: 40,
+        //     radius: 20,
+        //     borderWidth: 0,
+        //     borderColor: 0xcf4b00,
+        //     bgColor: 0x008B8B,
+        //     fillColor: 0xff8221,
+        // };
+
+        // this.progressBar1 = this.mai3.add.progressBar(this.config);
+
+        // const progressBar2 = this.mai3.add.progressBar({
+        //     x: 10, y: 50,
+        //     width: 480,
+        //     height: 40,
+        //     radius: 10,
+        //     borderWidth: 4,
+        //     borderColor: 0xC71585,
+        //     bgTexture: "strokeImage",
+        //     fillTexture: "progressImage",
+        //     // bg: 0x008B8B,
+        //     // fill: 0xff8221,
+        // });
+
+        const config: ImageProgressConfig = {
+            x: (this.sys.scale.width - 500) / 2,
+            y: 300,
+            barTexture: {
+                key: "ui",
+                frame: "ButtonOrange",
+                width: 500,
+            },
+            fillTexture: {
+                x: 16,
+                y: 10,
+                key: "ui",
+                frame: "ButtonOrangeFill1",
+                width: 13,
+                leftWidth: 6,
+                rightWidth: 6,
+            }
         };
 
-        this.progressBar1 = this.mai3.add.progressBar(this.config);
-
-        const progressBar2 = this.mai3.add.progressBar({
-            x: 10, y: 50,
-            // y: progressBar1.getBottom() + 100,
-            width: 480,
-            height: 40,
-            radius: 10,
-            borderWidth: 4,
-            borderColor: 0xC71585,
-            bg: "strokeImage",
-            fill: "progressImage",
-            // bg: 0x008B8B,
-            // fill: 0xff8221,
-        });
-
+        const p1 = this.mai3.add.imageProgressBar(config);
         this.load.on("progress", async (progress: number) => {
-            // await MaiGame.Utils.sleep(1000);
-            console.log('progress: ', progress);
-            this.progressBar1?.updateProgress(progress);
-            progressBar2.updateProgress(progress);
+            // console.log('progress: ', progress);
+            // this.progressBar1?.updateProgress(progress);
+            p1.value = progress;
             // progressBar.updateProgress(progress);
-
-            this.add.text(10, 10, "isnafosdansa")
-
+            // this.add.text(10, 10, "isnafosdansa")
         });
     }
 

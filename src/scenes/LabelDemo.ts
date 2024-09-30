@@ -1,11 +1,11 @@
 import { BaseScene } from "mai3-phaser-ui";
-
+import { LabelConfig, PanelConfig } from "mai3-phaser-ui/dist/types";
 export class LabelDemo extends BaseScene {
 
   constructor() {
     super('LabelDemo');
   }
-  
+
   preload() {
     super.preload();
   }
@@ -20,6 +20,8 @@ export class LabelDemo extends BaseScene {
     this.createPureTextLabel();
     this.createRoundedLabel();
     this.createReturnButton();
+    this.createPanelLabel();
+    this.createPanel();
   }
 
   private createReturnButton() {
@@ -42,7 +44,7 @@ export class LabelDemo extends BaseScene {
         handleFn: () => {
           this.scene.start('DemoScene');
         }
-      }
+      },
     });
   }
 
@@ -63,7 +65,7 @@ export class LabelDemo extends BaseScene {
         color: '#FFD700',
       },
       isWordWrap: true,
-      padding: { x: 5, y: 5 }
+      padding: { x: 5, y: 5 },
     });
   }
 
@@ -84,9 +86,44 @@ export class LabelDemo extends BaseScene {
         fontSize: '24px',
         color: '#fff',
       },
-      padding: { x: 10, y: 10 }
+      padding: { x: 10, y: 10 },
     };
     this.mai3.add.label(cfg);
+  }
+
+  private createPanelLabel() {
+    const text = `This is Panel Label`;
+    const cfg: LabelConfig = {
+      x: 10, y: 300,
+      text: text,
+      autoWidth: true,
+      autoHeight: true,
+      isWordWrap: true,
+      texture: 'StartGameButton',
+      borderWidth: 4,
+      borderColor: 0xFFD700,
+      backgroundColor: 0x32CD32,
+      backgroundAlpha: 1,
+      textStyle: {
+        fontFamily: 'Arial',
+        fontSize: '24px',
+        color: '#fff',
+      },
+      padding: { x: 10, y: 10 },
+    };
+    this.mai3.add.label(cfg);
+  }
+
+  private createPanel() {
+    const cfg: PanelConfig = {
+      x: 10, y: 400,
+      width: 800,
+      height: 100,
+      texture: 'mainMenuBg',
+      padding: { x: 10, y: 10 },
+    };
+    const panel = this.mai3.add.panel(cfg);
+    panel.render();
   }
 
   private createPureTextLabel() {
@@ -101,7 +138,7 @@ export class LabelDemo extends BaseScene {
         fontSize: '24px',
         color: '#fff',
       },
-      padding: { x: 5, y: 5 }
+      padding: { x: 5, y: 5 },
     };
     const text = this.mai3.add.text(textCfg);
     text.enableDrag();
@@ -126,9 +163,9 @@ export class LabelDemo extends BaseScene {
         color: '#fff',
       },
       isWordWrap: true,
-      padding: { left: 20, right: 20, top: 10, bottom: 0 }
+      padding: { left: 20, right: 20, top: 10, bottom: 0 },
     };
     this.mai3.add.label(labelCfg);
   }
-  
+
 }

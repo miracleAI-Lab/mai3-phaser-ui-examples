@@ -1,5 +1,4 @@
 import { BaseScene } from "mai3-phaser-ui";
-
 export class ToastDemo extends BaseScene {
     constructor() {
         super('ToastDemo');
@@ -13,29 +12,29 @@ export class ToastDemo extends BaseScene {
         this.createToast();
         this.createReturnButton();
     }
-  
+
     private createReturnButton() {
-      this.mai3.add.textButton({
-        x: 10,
-        y: 10,
-        width: 150,
-        height: 50,
-        text: "返回DemoScene",
-        backgroundColor: 0x4CAF50,
-        borderColor: 0x45A049,
-        borderWidth: 2,
-        radius: 10,
-        textStyle: {
-          fontFamily: 'Arial',
-          fontSize: '18px',
-          color: '#FFFFFF',
-        },
-        handleUp: {
-          handleFn: () => {
-            this.scene.start('DemoScene');
-          }
-        }
-      });
+        this.mai3.add.textButton({
+            x: 10,
+            y: 10,
+            width: 150,
+            height: 50,
+            text: "返回DemoScene",
+            backgroundColor: 0x4CAF50,
+            borderColor: 0x45A049,
+            borderWidth: 2,
+            radius: 10,
+            textStyle: {
+                fontFamily: 'Arial',
+                fontSize: '18px',
+                color: '#FFFFFF',
+            },
+            handleUp: {
+                handleFn: () => {
+                    this.scene.start('DemoScene');
+                }
+            },
+        });
     }
 
     private createToast() {
@@ -48,8 +47,7 @@ export class ToastDemo extends BaseScene {
             duration: 3000,
             type: 'success',
             textAlign: 'center',
-            horizontalAlign: 'right',
-            verticalAlign: 'top',
+            alignment: {horizontal: 'right', vertical: 'top'},
             animationType: 'slide',
             backgroundColor: 0x008B00,
             textStyle: {
@@ -57,7 +55,7 @@ export class ToastDemo extends BaseScene {
                 fontSize: '18px',
                 color: '#000000',
             },
-            margin: {all: 10},
+            margin: { all: 10 },
         });
 
         // 创建一个按钮来触发Toast
@@ -75,11 +73,11 @@ export class ToastDemo extends BaseScene {
             },
             handleUp: {
                 handleFn: () => {
-                    toast.show() 
+                    toast.show()
                 }
-            }
+            },
         });
     }
-        
+
     update() { }
 }
