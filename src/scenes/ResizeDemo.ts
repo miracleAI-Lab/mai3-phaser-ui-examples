@@ -15,12 +15,12 @@ export class ResizeDemo extends BaseScene {
   }
 
   private createReturnButton() {
-    const returnButton = this.mai3.add.textButton({
+    this.mai3.add.textButton({
       x: 10,
-      y: 10,
+      y: 30,
       width: 150,
       height: 50,
-      text: "返回DemoScene",
+      text: "Return",
       backgroundColor: 0x4CAF50,
       borderColor: 0x45A049,
       borderWidth: 2,
@@ -33,11 +33,6 @@ export class ResizeDemo extends BaseScene {
       handleUp: {
         handleFn: () => {
           this.scene.start('DemoScene');
-        }
-      },
-      handleDown: {
-        handleFn: () => {
-          this.switchDragResizeComponent(returnButton);
         }
       },
     });

@@ -129,61 +129,61 @@ export class GridDemo extends BaseScene {
       frames: [{ key: "cat0" }, { key: "cat1" }],
       frameRate: 10,
       repeat: -1,
-	});
+    });
 	  
-	this.anims.create({
+    this.anims.create({
       key: "stop",
       frames: [{ key: "cat0" }],
       frameRate: 10,
       repeat: 1,
     });
 
-	this.catGrid = new Grid(this, {
-    x: 100,
-    y: 510,
-    width: 600,
-    height: 300,
-    padding: { all: 10 },
-    rowGap: 10,
-    columnGap: 10,
-    rows: 3,
-    columns: 4,
-    //   autoFill: true,
-    draggable: true,
-    borderWidth: 6,
-    borderColor: 0xcd8500,
-    backgroundColor: 0x000000,
-    // alignment: { horizontal: "center", vertical: "middle" },
-    radius: 10,
-    handleDragStart: (
-      child: Container | undefined,
-      pointer: Phaser.Input.Pointer,
-      dragX: number,
-      dragY: number
-    ) => {
-		if (child && child.Type === 'Sprite') {
-			const sprite = child as Sprite;
-			sprite.instance?.play("stop");
-		}
-    },
-    handleDragEnd: (
-      dragChild: Container | undefined,
-      targetChild: Container | undefined,
-      pointer: Phaser.Input.Pointer
-    ) => {
-		if (dragChild && targetChild) {
-			this.catGrid.removeChild(targetChild);
-		}
+    this.catGrid = new Grid(this, {
+      x: 100,
+      y: 510,
+      width: 600,
+      height: 300,
+      padding: { all: 10 },
+      rowGap: 10,
+      columnGap: 10,
+      rows: 3,
+      columns: 4,
+      //   autoFill: true,
+      draggable: true,
+      borderWidth: 6,
+      borderColor: 0xcd8500,
+      backgroundColor: 0x000000,
+      // alignment: { horizontal: "center", vertical: "middle" },
+      radius: 10,
+      handleDragStart: (
+        child: Container | undefined,
+        pointer: Phaser.Input.Pointer,
+        dragX: number,
+        dragY: number
+      ) => {
+        if (child && child.Type === 'Sprite') {
+          const sprite = child as Sprite;
+          sprite.instance?.play("stop");
+        }
+      },
+      handleDragEnd: (
+        dragChild: Container | undefined,
+        targetChild: Container | undefined,
+        pointer: Phaser.Input.Pointer
+      ) => {
+        if (dragChild && targetChild) {
+          this.catGrid.removeChild(targetChild);
+        }
 
-		if (dragChild?.Type === "Sprite") {
-			const sprite = dragChild as Sprite;
-			sprite.instance?.play("walk");
-		}
-    },    
-  });
+        if (dragChild?.Type === "Sprite") {
+          const sprite = dragChild as Sprite;
+          sprite.instance?.play("walk");
+        }
+      },
+    });
 
-  this.add.existing(this.catGrid);
-  console.log("aa", this.catGrid.getCellItemsAtIndex(0));
+    this.add.existing(this.catGrid);
+    console.log("aa", this.catGrid.getCellItemsAtIndex(0));
 
     const cellItems = [];
     let index = 0;
@@ -199,8 +199,8 @@ export class GridDemo extends BaseScene {
             y: 60,
             draggable: false,
           },
-		  {
-			id: 'sprite_' + index,
+          {
+            id: 'sprite_' + index,
             type: "Sprite",
             key: `cat${index % 2}`,
             x: 48,
@@ -248,26 +248,26 @@ export class GridDemo extends BaseScene {
   private createReturnButton() {
     this.mai3.add.textButton({
       x: 10,
-      y: 10,
+      y: 30,
       width: 150,
       height: 50,
-      text: "返回DemoScene",
-      backgroundColor: 0x4caf50,
-      borderColor: 0x45a049,
+      text: "Return",
+      backgroundColor: 0x4CAF50,
+      borderColor: 0x45A049,
       borderWidth: 2,
       radius: 10,
       textStyle: {
-        fontFamily: "Arial",
-        fontSize: "18px",
-        color: "#FFFFFF",
+        fontFamily: 'Arial',
+        fontSize: '18px',
+        color: '#FFFFFF',
       },
       handleUp: {
         handleFn: () => {
-          this.scene.start("DemoScene");
-        },
+          this.scene.start('DemoScene');
+        }
       },
     });
   }
 
-  update() {}
+  update() { }
 }
