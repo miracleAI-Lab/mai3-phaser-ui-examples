@@ -7,7 +7,6 @@ export default defineConfig({
       '@': '/src',
     },
   },
-  base: "/mai3-phaser-ui-examples/",
   optimizeDeps: {
     esbuildOptions: {
       define: {
