@@ -6,9 +6,10 @@
   "homepage": "https://miracleAI-Lab.github.io/mai3-phaser-ui-examples",
   "scripts": {
     "start": "vite --host 0.0.0.0 --mode dev",
-    "build": "vite build  --mode dev",
-    "deploy": "vite build && gh-pages -d dist",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build": "vite build",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
     "@babel/plugin-proposal-decorators": "^7.24.7",
@@ -17,14 +18,15 @@
     "@esbuild-plugins/node-globals-polyfill": "^0.2.3",
     "@types/pathfinding": "^0.0.9",
     "@vitejs/plugin-react": "^4.3.1",
+    "gh-pages": "^6.2.0",
     "typescript": "^5.6.2",
     "vite": "^5.4.8"
   },
   "dependencies": {
     "@types/jest": "^29.5.13",
     "@types/node": "^22.7.4",
-    "pathfinding": "^0.4.18",
     "mai3-phaser-ui": "^1.0.6",
+    "pathfinding": "^0.4.18",
     "phaser": "^3.85.2",
     "short-uuid": "5.2.0",
     "typed-signals": "^3.0.0",
@@ -44,4 +46,3 @@
     ]
   }
 }
-

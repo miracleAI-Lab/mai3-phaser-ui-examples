@@ -8,6 +8,9 @@ export default defineConfig({
     },
   },
   base: '/mai3-phaser-ui-examples/',
+  build: {
+    outDir: 'dist',  // 输出目录
+  },
   optimizeDeps: {
     esbuildOptions: {
       define: {
