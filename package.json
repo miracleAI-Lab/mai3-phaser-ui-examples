@@ -7,6 +7,7 @@
   "scripts": {
     "start": "vite --host 0.0.0.0 --mode dev",
     "build": "vite build  --mode dev",
+    "deploy": "vite build && gh-pages -d dist",
     "preview": "vite preview"
   },
   "devDependencies": {
