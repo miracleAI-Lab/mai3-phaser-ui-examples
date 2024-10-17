@@ -5,7 +5,7 @@
   "homepage": "https://miracleAI-Lab.github.io/mai3-phaser-ui-examples",
   "scripts": {
     "start": "vite --host 0.0.0.0 --mode dev",
-    "build": "vite build",
+    "build": "vite build  --mode dev",
     "preview": "vite preview"
   },
   "devDependencies": {
